@@ -1,0 +1,3 @@
+SmartApi-py
+python-dotenv
+pyotp
