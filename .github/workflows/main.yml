@@ -1,0 +1,35 @@
+name: Run Nifty Algo Daily
+
+on:
+  schedule:
+    - cron: '15 3 * * 1-5'  # रोज़ सुबह 8:45 AM IST (3:15 UTC)
+  workflow_dispatch:
+
+jobs:
+  run-algo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Nifty Algo Script
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
+          API_KEY: ${{ secrets.API_KEY }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+        run: |
+          python nifty_algo.py
+
