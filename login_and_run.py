@@ -6,13 +6,13 @@ import os
 # Load variables from .env
 load_dotenv()
 
-api_key = os.getenv("API_KEY")
-client_id = os.getenv("CLIENT_ID")
-pwd = os.getenv("PASSWORD")
-totp_secret = os.getenv("TOTP_SECRET")
+api_key = os.getenv("Xrpr40uc")
+client_id = os.getenv("m54235948")
+pwd = os.getenv("2323")
+totp_secret = os.getenv("d5a97db6-4f69-4b2e-97df-dae96da8b562")
 
 # Generate TOTP
-totp = pyotp.TOTP(totp_secret).now()
+totp = pyotp.TOTP(O5HWT7XOSIIRU44G2CCHZC3EDQ).now()
 
 # Initialize Angel One SmartConnect
 obj = SmartConnect(api_key=api_key)
