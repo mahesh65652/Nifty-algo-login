@@ -22,7 +22,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run login script
-      run: python run.py
+      run: python login_and_run.py
       env:
         API_KEY: ${{ secrets.API_KEY }}
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
