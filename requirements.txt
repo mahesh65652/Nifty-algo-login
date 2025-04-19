@@ -1,5 +1,9 @@
+smartapi-python
+pyotp
+logzero
+websocket-client
+pycryptodome
 gspread
 oauth2client
-smartapi-python
 pandas
 numpy
