@@ -2,7 +2,7 @@ name: Run Nifty Algo Daily
 
 on:
   schedule:
-    - cron: '15 3 * * 1-5'
+    - cron: '15 3 * * 1-5'  # रोज़ सुबह 8:45 AM IST
   workflow_dispatch:
 
 jobs:
@@ -24,9 +24,11 @@ jobs:
 
       - name: Run Nifty Algo Script
         env:
-          API_KEY: ${{ secrets.API_KEY }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          TOTP_SECRET: ${{ secrets.TOTP_SECRET }}
+          REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
+          API_KEY: ${{ secrets.API_KEY }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
         run: |
-          python login_and_run.py
+          python login-and-run.py
