@@ -21,7 +21,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run longin script
+    - name: Run login script
       env:
         API_KEY: ${{ secrets.API_KEY }}
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
@@ -33,4 +33,4 @@ jobs:
         SHEET_NAME: ${{ secrets.SHEET_NAME }}
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      run: python algo_longin_and_run.py
+      run: python algo_login_and_run.py
