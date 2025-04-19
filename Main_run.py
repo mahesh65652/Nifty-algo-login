@@ -1,4 +1,5 @@
 name: Angel One Auto Login
+
 on:
   workflow_dispatch:
 
@@ -21,7 +22,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run login script
-      run: python login_and_run.py
+      run: python run.py
       env:
         API_KEY: ${{ secrets.API_KEY }}
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
