@@ -1,3 +1,4 @@
+
 api_key = os.getenv("API_KEY")
 client_id = os.getenv("CLIENT_ID")
 pwd = os.getenv("PASSWORD")
