@@ -1,0 +1,33 @@
+
+name: Nifty Algo Bot
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  run-algo:
+    runs-on: ubuntu-latest
+
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      TOTP_SECRET: ${{ secrets.TOTP_SECRET }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install SmartApi-python pyotp python-dotenv
+
+      - name: Run login script
+        run: python algo_longin_and_run.py
