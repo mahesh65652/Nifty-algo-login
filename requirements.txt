@@ -1,6 +1,5 @@
 smartapi-python
 pyotp
-logzero
 websocket-client
 pycryptodome
 gspread
