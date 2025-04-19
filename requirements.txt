@@ -1,6 +1,5 @@
-smartapi-python
-pandas
-openpyxl
 gspread
 oauth2client
-requests
+smartapi-python
+pandas
+numpy
