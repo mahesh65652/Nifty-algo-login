@@ -1,5 +1,4 @@
 name: Angel One Auto Login
-
 on:
   workflow_dispatch:
 
