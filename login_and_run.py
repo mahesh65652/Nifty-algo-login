@@ -1,22 +1,32 @@
-from SmartApi import SmartConnect
-import pyotp
-from dotenv import load_dotenv
-import os
+name: Run Nifty Algo Daily
 
-# Load variables from .env
-load_dotenv()
+on:
+  schedule:
+    - cron: '15 3 * * 1-5'  # रोज़ सुबह 8:45 AM IST (3:15 UTC)
+  workflow_dispatch:
 
-api_key = os.getenv("Xrpr40uc")
-client_id = os.getenv("m54235948")
-pwd = os.getenv("2323")
-totp_secret = os.getenv("d5a97db6-4f69-4b2e-97df-dae96da8b562")
+jobs:
+  run-algo:
+    runs-on: ubuntu-latest
 
-# Generate TOTP
-totp = pyotp.TOTP(O5HWT7XOSIIRU44G2CCHZC3EDQ).now()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-# Initialize Angel One SmartConnect
-obj = SmartConnect(api_key=api_key)
-data = obj.generateSession(client_id, pwd, totp)
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-print("Login Success!")
-print("Access Token:", data['data']['access_token'])
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Nifty Algo Script
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          TOTP_SECRET: ${{ secrets.TOTP_SECRET }}
+        run: |
+          python login-and-run.py
