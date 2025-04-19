@@ -1,11 +1,3 @@
-from SmartApi import SmartConnect
-import pyotp
-from dotenv import load_dotenv
-import os
-
-# Load environment variables
-load_dotenv()
-
 api_key = os.getenv("API_KEY")
 client_id = os.getenv("CLIENT_ID")
 pwd = os.getenv("PASSWORD")
