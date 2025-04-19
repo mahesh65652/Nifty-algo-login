@@ -1,4 +1,4 @@
-smartapi-python
+git+https://github.com/angel-one/smartapi-python.git
 pyotp
 websocket-client
 pycryptodome
@@ -6,4 +6,5 @@ gspread
 oauth2client
 pandas
 numpy
+
 
