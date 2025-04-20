@@ -1,8 +1,4 @@
-git+https://github.com/angel-one/smartapi-python.git
+SmartApi
 pyotp
-websocket-client
-pycryptodome
-gspread
-oauth2client
-pandas
-numpy
+logzero
+python-dotenv
